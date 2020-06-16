@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-	
+
 	double Amount, Principle, Interest;
 	int Days;
 
@@ -12,12 +12,11 @@ int main() {
 	cin >> Principle;
 	cout << "Enter interest (%): ";
 	cin >> Interest;
-	Interest /= 100;
 	cout << "Enter amount of days: ";
 	cin >> Days;
 
 	for (int i = 1; i <= Days; i++) {
-		Amount = Principle * pow((1 + Interest), i);
+		Amount = Principle * pow((1 + (Interest/100)), i);
 		printf("Day %i: %.2f\n", i, Amount);
 	}
 }
