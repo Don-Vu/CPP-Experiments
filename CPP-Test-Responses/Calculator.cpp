@@ -2,42 +2,42 @@
 #include <vector>
 #include <string>
 #include <sstream>
+
 using namespace std;
 
 int main() {
 
-	std::string sUserInput, sTemporary;
-	std::vector <std::string> vecsUserInput;
-	std::string cOperation;
-	double dResult, dNum1, dNum2;
-	char cWhiteSpace = ' ';
+	string sEquation, sHolding, sOperation;
+	vector<string> vecsEquation;
+	double n1, n2;
+	char whitespace = ' ';
 
-	std::cout << "Enter calculation (ex. 5 + 6) : ";
-	getline(std::cin, sUserInput);
-	std::stringstream ss(sUserInput);
+	cout << "Enter calculation (5 + 6) : ";
+	getline(cin, sEquation);
+	stringstream ss(sEquation);
 
-	while (getline(ss, sTemporary, cWhiteSpace)) {
-		vecsUserInput.push_back(sTemporary);
+	while (getline(ss, sHolding, whitespace)) {
+		vecsEquation.push_back(sHolding);
 	}
 
-	dNum1 = std::stod(vecsUserInput[0]);
-	dNum2 = std::stod(vecsUserInput[2]);
-	cOperation = vecsUserInput[1];
+	n1 = stoi(vecsEquation[0]);
+	n2 = stoi(vecsEquation[2]);
+	sOperation = vecsEquation[1];
 
-	if (cOperation == "+") {
-		printf("%.1f + %.1f equals %.1f", dNum1, dNum2, (dNum1 + dNum2));
+	if (sOperation == "+") {
+		printf("%.1f + %.1f = %.1f", n1, n2, (n1 + n2));
 	}
-	else if (cOperation == "-") {
-		printf("%.1f - %.1f equals %.1f", dNum1, dNum2, (dNum1 - dNum2));
+	else if (sOperation == "-") {
+		printf("%.1f - %.1f = %.1f", n1, n2, (n1 - n2));
 	}
-	else if (cOperation == "*") {
-		printf("%.1f * %.1f equals %.1f", dNum1, dNum2, (dNum1 * dNum2));
+	else if (sOperation == "*") {
+		printf("%.1f * %.1f = %.1f", n1, n2, (n1 * n2));
 	}
-	else if (cOperation == "/") {
-		printf("%.1f / %.1f equals %.1f", dNum1, dNum2, (dNum1 / dNum2));
+	else if (sOperation == "/") {
+		printf("%.1f / %.1f = %.1f", n1, n2, (n1 / n2));
 	}
 	else {
-		std::cout << "Please enter only +, -, *, /";
+		cout << "Please enter only +, -, *, /";
 	}
 
 	return 0;
