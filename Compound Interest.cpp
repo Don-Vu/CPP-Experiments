@@ -16,7 +16,7 @@ int main() {
 	cin >> Days;
 
 	for (int i = 1; i <= Days; i++) {
-		Amount = Principle * pow((1 + (Interest/100)), i);
+		Amount = Principle * pow((1 + (Interest / 100)), i);
 		printf("Day %i: %.2f\n", i, Amount);
 	}
 }
