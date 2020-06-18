@@ -32,9 +32,9 @@ public:
 	int Mod() {
 		return iNum1 % iNum2;
 	}
-	void Calculate(int x){
+	void Calculate(int x) {
 		switch (x) {
-		case 1: 
+		case 1:
 			printf("The sum is %.0f\n\n", Add());
 			break;
 		case 2:
