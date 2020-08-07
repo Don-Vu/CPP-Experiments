@@ -11,7 +11,6 @@ int main() {
 	cout << "Enter initial investment: ";
 	cin >> Principle;
 	cout << "Enter interest (%): ";
-	cin >> Interest;
 	cout << "Enter amount of days: ";
 	cin >> Days;
 
