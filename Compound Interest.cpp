@@ -7,6 +7,7 @@ int main() {
 
 	double Amount, Principle, Interest;
 	int Days;
+	int x = 1, y = 2, z = 4;
 
 	cout << "Enter initial investment: ";
 	cin >> Principle;
