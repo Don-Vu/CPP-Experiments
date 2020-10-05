@@ -107,6 +107,7 @@ int play(int length, char *word, char key[1])
     return 0;
 }
 
+// Prompts for enter key to end game
 int endGame()
 {
     char end;
