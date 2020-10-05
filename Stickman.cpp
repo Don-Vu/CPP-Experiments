@@ -10,6 +10,7 @@ int length, guesses;
 void encrypt(char *word);
 void getAnswer(char *word);
 int play(int guesses, char *word, char key[1]);
+int endGame();
 
 int main(int argc, char *argv[])
 {
@@ -33,6 +34,7 @@ int main(int argc, char *argv[])
 
         encrypt(hiddenWord);
         play(length, hiddenWord, argv[1]);
+        endGame();
     }
 }
 
@@ -92,7 +94,7 @@ int play(int length, char *word, char key[1])
         getAnswer(word);
         if (correct == length)
         {
-            cout << "Good job! You found the word " << key << "!";
+            cout << "Good job! You found the word " << key << "!" << endl;
             return 0;
         }
         else
@@ -101,6 +103,23 @@ int play(int length, char *word, char key[1])
             continue;
         }
     }
-    cout << "Not quite, the correct answer was " << key << ". Better luck next time";
+    cout << "Not quite, the correct answer was " << key << ". Better luck next time" << endl;
     return 0;
+}
+
+int endGame()
+{
+    char end;
+    cout << "Press enter to end the game.";
+    cin.ignore();
+    if (cin.get() == '\n')
+    {
+        return 0;
+    }
+    else
+    {
+        endGame();
+        return 0;
+    }
+    
 }
