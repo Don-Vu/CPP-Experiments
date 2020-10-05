@@ -71,12 +71,12 @@ int play(int length, char *word, char key[1])
 
     while(guesses > 0)
     {
-        // Iterates guess through key, skips duplicate correct answers, and replaces letter in ciphertext with correct guess
+        // Iterates guess through key, and replaces letters in ciphertext with correct guess
         cout << "Guess a letter (" << guesses << " guesses remaining): ";
         cin >> guess;
         for (int i = 0; i <= length; i++)
         {
-            if (guess == key[i])
+            if (guess == key[i] && word[i] == '_')
             {
                 word[i] = guess;
                 correct++;
