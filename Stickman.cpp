@@ -110,7 +110,7 @@ int play(int length, char *word, char key[1])
 int endGame()
 {
     char end;
-    cout << "Press enter to end the game.";
+    cout << "Press enter to end the game. ";
     cin.ignore();
     if (cin.get() == '\n')
     {
