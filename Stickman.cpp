@@ -89,6 +89,7 @@ int play(int length, char *word, char key[1])
             guesses++;
             increment = false;
         }
+        getAnswer(word);
         if (correct == length)
         {
             cout << "Good job! You found the word " << key << "!";
@@ -96,7 +97,6 @@ int play(int length, char *word, char key[1])
         }
         else
         {
-            getAnswer(word);
             guesses--;
             continue;
         }
