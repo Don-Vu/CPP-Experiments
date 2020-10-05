@@ -1,0 +1,100 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Global Variables
+int length, guesses;
+
+// Global functions
+void encrypt(char *word);
+void getAnswer(char *word);
+int play(int guesses, char *word, char key[1]);
+
+int main(int argc, char *argv[])
+{
+    // Checks if one argument is inputted into command line
+    if (argc < 2)
+    {
+        cout << "Enter a word";
+        return 0;
+    }
+    else if (argc > 2)
+    {
+        cout << "Enter only one word";
+        return 0;
+    }
+    else
+    {
+        length = strlen(argv[1]);
+        guesses = length;
+        char hiddenWord[length];
+        strcpy(hiddenWord, argv[1]);
+
+        encrypt(hiddenWord);
+        play(length, hiddenWord, argv[1]);
+    }
+}
+
+// Sets hidden word to underscores
+void encrypt(char *word)
+{
+    for (int i = 0; i < length; i++)
+    {
+        word[i] = '_';
+    }
+}
+
+// Prints out current answer
+void getAnswer(char *word)
+{
+    cout << "The answer so far is ";
+    for (int i = 0; i <= length; i++)
+    {
+        cout << word[i] << " ";
+    }
+    cout << endl;
+}
+
+// Starts 'game'
+int play(int length, char *word, char key[1])
+{
+    int guesses = length, correct = 0;
+    char guess;
+
+    cout << "I'm thinking of a secret word.\n" <<
+    "Try and guess the word. You can guess one letter at a time.\n" <<
+    "Each time you guess I will show you which letters have been correctly guessed and which letters are still missing.\n"<<
+    "You have " << " guesses to guess all of the letters. Good luck!\n";
+    cout << "You will have " << length << " guesses to guess all of the letters. Good luck!" << endl;
+    getAnswer(word);
+
+    while(guesses > 0)
+    {
+        // Iterates guess through key, skips duplicate correct answers, and replaces letter in ciphertext with correct guess
+        cout << "Guess a letter (" << guesses << " guesses remaining): ";
+        cin >> guess;
+        for (int i = 0; i <= length; i++)
+        {
+            if (guess == key[i] && word[i] == '_')
+            {
+                word[i] = guess;
+                correct++;
+                break;
+            } 
+        }
+        if (correct == length)
+        {
+            cout << "Good job! You found the word " << key << "!";
+            return 0;
+        }
+        else
+        {
+            getAnswer(word);
+            guesses--;
+            continue;
+        }
+    }
+    cout << "Not quite, the correct answer was " << key << ". Better luck next time";
+    return 0;
+}
