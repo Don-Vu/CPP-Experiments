@@ -76,11 +76,10 @@ int play(int length, char *word, char key[1])
         cin >> guess;
         for (int i = 0; i <= length; i++)
         {
-            if (guess == key[i] && word[i] == '_')
+            if (guess == key[i])
             {
                 word[i] = guess;
                 correct++;
-                break;
             } 
         }
         if (correct == length)
