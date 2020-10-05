@@ -67,7 +67,7 @@ int play(int length, char *word, char key[1])
 
     cout << "I'm thinking of a secret word.\n" <<
     "Try and guess the word. You can guess one letter at a time.\n" <<
-    "Each time you guess I will show you which letters have been correctly guessed and which letters are still missing.\n"<<
+    "Each time you guess I will show you which letters have been \ncorrectly guessed and which letters are still missing.\n";
     cout << "You will have " << 4 << " guesses to guess all of the letters. Good luck!" << endl;
     getAnswer(word);
 
