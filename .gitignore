@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# What is this XCode stuff?
+*.dSYM
+/ignorethislol*
